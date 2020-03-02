@@ -1,0 +1,86 @@
+entities:
+  - Name_Interessent
+  - E-Mail_Interessent
+intents:
+  - get_started
+  - chitchat.greet
+  - chitchat.bye
+  - Begruessung
+  - Bestaetigen
+  - Name
+  - E-Mail
+  - Treffen_heute
+  - Treffen_morgen
+  - Ablehnen
+  - Treffen_Zeit_10
+  - Infomaterial_Bestaetigt
+actions:
+  - utter_get_started
+  - utter_Begruessung
+  - utter_name_interessent
+  - utter_Frage_E-Mail
+  - utter_date_picker
+  - utter_Vorschlag_Zeiten
+  - utter_Frage_Infomaterial
+  - utter_hi
+  - utter_bye
+  - utter_Verabschiedung
+  - write_database
+
+
+
+# forms: []
+templates:
+  utter_get_started:
+    - text: utter_get_started
+  utter_Begruessung:
+    - text: Guten Tag, möchten Sie einen Termin mit Frau Ann Geber vereinbaren?
+  utter_name_interessent:
+    - text: Wie heißen Sie?
+  utter_Frage_E-Mail:
+    - text: Wie lautet Ihre E-Mail Adresse?
+  utter_date_picker:
+    - text: An welchem Tag haben Sie Zeit für ein einstündiges Expertengespräch?
+      buttons:
+        - title: Heute
+          payload: heute
+        - title: Morgen
+          payload: morgen
+  utter_Vorschlag_Zeiten:
+    - text: Folgende Zeiten können wir Ihnen an diesem Tag vorschlagen
+      buttons:
+        - title: '10:00 Uhr'
+          payload: 10:00 Uhr
+        - title: '11:00 Uhr'
+          payload: 11:00 Uhr
+        - title: '12:00 Uhr'
+          payload: 12:00 Uhr
+        - title: Anderes Datum wählen
+          payload: anderes_datum
+  utter_Frage_Infomaterial:
+    - text: Sollen wir Ihnen im Vorfeld schon Infomaterial über Chatbots zukommen lassen?
+      buttons:
+        - title: Ja
+          payload: Bestaetigen
+        - title: Nein
+          payload: Ablehnen
+  utter_hi:
+    - text: utter_hi
+  utter_bye:
+    - text: utter_bye
+  utter_Verabschiedung:
+    - text: Vielen Dank für Ihre Anfrage, wir werden Ihnen eine E-Mail mit den wichtigsten Informationen zukommen lassen.
+      image: 'https://mobilecamp.de/wp-content/uploads/2017/04/Tsystems.png'
+slots:
+  disambiguation_message:
+    type: unfeaturized
+  E-Mail_Interessent:
+    type: unfeaturized
+  Infomaterial:
+    type: bool
+  Name_Interessent:
+    type: text
+  Treffen_Datum:
+    type: text
+  Treffen_Zeit:
+    type: text
